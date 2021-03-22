@@ -467,8 +467,8 @@ enum enumnumberingPlanIndicator
 
 typedef struct __attribute__((packed)) NatureofAddressandNumberingPlanIndicator
 {
-    *enumStruct numberingPlanIndicator;
-    *enumStruct natureOfAddressIndicator;
+    enumStruct numberingPlanIndicator;
+    enumStruct natureOfAddressIndicator;
     _Bool ext;
 
 
@@ -525,7 +525,7 @@ enum enumEPS_BearerIdentity
 
 typedef struct __attribute__((packed)) EPS_BearerID
 {
-    u_char spare:4;
+    unsigned char spare:4;
     enumStruct epsBearerIdentity;
     OCTET_STRING ext;
 
@@ -536,19 +536,19 @@ typedef struct __attribute__((packed)) EPS_BearerID
 
 typedef struct __attribute__((packed)) IPAddress_GTPV2
 {
-    bool IPV4orIPV6_choice;
+    _Bool IPV4orIPV6_choice;
            union
            {
-               u_char ipv4[4];
-               u_char ipv6[16];
+               unsigned char ipv4[4];
+               unsigned char ipv6[16];
            }IPv4orIPv6;
 
 }IPAddress_GTPV2;
 //------------------------75 : MEI  ------------------
 //typedef struct __attribute__((packed)) MobileEquipmentIdentity
 //{
-//    u_char       length:4;
-//    u_char      *MobileEquipmentIdentityValue;
+//    unsigned char       length:4;
+//    unsigned char      *MobileEquipmentIdentityValue;
 
 //}MobileEquipmentIdentity;
 typedef OCTET_STRING mobileEquipmentIdentity;
@@ -821,8 +821,8 @@ typedef struct __attribute__((packed)) ServingNetwork
 //}IPv6_AddressAndPrefixLengthType;
 //typedef struct IPv6RemoteAddress
 //{
-//    u_char                  iPv6[16];
-//    u_char                  iPv6mask[16];
+//    unsigned char                  iPv6[16];
+//    unsigned char                  iPv6mask[16];
 //}IPv6RemoteAddress;
 //typedef struct IPv4RemoteAddress
 //{
@@ -1015,7 +1015,7 @@ typedef struct __attribute__((packed)) ServingNetwork
 //typedef struct __attribute__((packed)) TrafficAggregateDescription
 //{
 //    unsigned char numberOfPacketFilters:4;
-//    bool ebit;//bitmap
+//    _Bool ebit;//bitmap
 //    unsigned char tADoperationCode:3;
 //    union tAD_OperationCode
 // {
@@ -1087,7 +1087,7 @@ typedef struct __attribute__((packed)) UserLocationInformation
 
 typedef struct __attribute__((packed)) TemporaryMobileSubscriberIdentities
 {
-    u_char temporaryMobileSubscriberIdentities[4];
+    unsigned char temporaryMobileSubscriberIdentities[4];
 }TemporaryMobileSubscriberIdentities;
 //-------------------------------------89-Global CN-Id........................................
 typedef struct __attribute__((packed)) GlobalCN_Id
@@ -1112,10 +1112,10 @@ typedef struct __attribute__((packed)) S103_PDN_DataForwardingInfo
               unsigned char ipv4[4];
                unsigned char ipv6[16];
            }ipv4oripv6;
-    u_char  greKey[4];
-    u_char  epsBearerID_Number;
-    u_char  spare:4;
-    u_char  *epsBearerID;
+    unsigned char  greKey[4];
+    unsigned char  epsBearerID_Number;
+    unsigned char  spare:4;
+    unsigned char  *epsBearerID;
 
 }S103_PDN_DataForwardingInfo;
 
@@ -1131,7 +1131,7 @@ typedef struct __attribute__((packed)) S1_U_DataForwarding
                unsigned char ipv4[4];
                unsigned char ipv6[16];
            }ipv4oripv6;
-    u_char   servingGW_S1uTEID[4];
+    unsigned char   servingGW_S1uTEID[4];
 
 }S1_U_DataForwarding;
 
@@ -1165,7 +1165,7 @@ typedef struct __attribute__((packed)) ChargingCharacteristics
 //----------------------96: Trace Information-------------
 typedef struct __attribute__((packed)) IPV4
 {
-    u_long ipv4;
+    unsigned long ipv4;
 }IPV4;
 typedef struct  __attribute__((packed)) MSCServer_Trace
 {
@@ -1517,7 +1517,7 @@ typedef struct __attribute__((packed)) DRXparameter
 {
 
    unsigned char sPLITPGCYCLECODE;
-   *enumStruct non_DRXtimer;
+   enumStruct non_DRXtimer;
    _Bool sPLIT_onCCCH;
    enumStruct cNSpecificDRXcyclelengthandS1mode;
 
@@ -1554,7 +1554,7 @@ typedef struct __attribute__((packed)) UENetworkCapability
         _Bool uEA6;
         _Bool uEA7;
         //UCS2 support(UCS2)
-        bool uCS2;
+        _Bool uCS2;
         //UMTS Integrity Algorithm
         _Bool uIA1;
         _Bool uIA2;
@@ -1719,13 +1719,13 @@ typedef struct __attribute__((packed)) MMContextForGSM_KeyAndTriplets
 
 typedef struct __attribute__((packed)) AuthenticationQuintuplet
 {
-    u_char rAND[16];
-  //u_char xRESLength;
-  //u_char *xRES;
+    unsigned char rAND[16];
+  //unsigned char xRESLength;
+  //unsigned char *xRES;
     OCTET_STRING xRES;
 
-  u_char cK[16];
-  u_char iK[16];
+  unsigned char cK[16];
+  unsigned char iK[16];
 
   OCTET_STRING aUTN;
 
